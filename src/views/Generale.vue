@@ -1,20 +1,22 @@
 <template>
   <div class="generale">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <div class="ui menu pointing secondary">
       <a
         is="sui-menu-item"
-        v-for="item in items"
-        :active="isActive(item)"
-        :key="item"
-        :content="item"
-        @click="select(item)"
+        v-for="menu in menus"
+        :active="isActive(menu)"
+        :key="menu"
+        :content="menu"
+        @click="select(menu)"
       />
       <div class="menu menu right">
-        <a is="sui-menu-item" content="Bonjour Christopher !"/>
+        <a is="sui-menu-item">
+          <h2> {{whoAmI}} </h2>
+        </a>
       </div>
     </div>
-    <TableauDeBord v-if="active == 'TableauDeBord'"/>
+    <TableauDeBord v-if="active == 'Tableau de Bord'"/>
     <Config v-if="active == 'Parametre'"/>
   </div>
 </template>
@@ -33,8 +35,9 @@ export default {
   },
   data() {
     return {
-      active: 'TableauDeBord',
-      items: ['TableauDeBord', 'Parametre'],
+      whoAmI: 'Bonjour Christopher !',
+      active: 'Tableau de Bord',
+      menus: ['Tableau de Bord', 'Parametre'],
     };
   },
   methods: {
