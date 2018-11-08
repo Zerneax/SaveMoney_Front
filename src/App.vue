@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Generale</router-link> |
-      <router-link to="/parametre">Parametre</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -16,6 +12,7 @@
   text-align: center;
   color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
 }
