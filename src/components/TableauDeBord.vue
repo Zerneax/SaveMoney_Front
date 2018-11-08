@@ -3,7 +3,8 @@
     <h3 is="sui-header"> Gerer votre budget !! </h3>
     <div class="ui two column grid">
       <div class="column">
-        <div class="ui segment">
+        <div class="ui segment charts">
+          <IEcharts id="jauge" :option="jauge" style="width: 400px; height: 400px;" v-on:click="updateMaxJauge()"></IEcharts>
         </div>
         <div class="ui segment">
         </div>
@@ -53,10 +54,16 @@
 </template>
 
 <script>
+
+import IEcharts from 'vue-echarts-v3/src/full.js'
+
 export default {
   name: 'TableauDeBord',
   props: {
     msg: String
+  },
+  components: {
+    IEcharts
   },
   data() {
     return {
@@ -67,8 +74,39 @@ export default {
       revenus: [
         {"date": '10/10/1980',"montant": '2000€', "description": 'salaire'},
         {"date": '11/10/1980',"montant": '20€', "description": 'mutuelle'},
-        {"date": '13/10/1980',"montant": '10€', "description": 'virement'}]
+        {"date": '13/10/1980',"montant": '10€', "description": 'virement'}],
+      maxJauge: 500,
+      jauge: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}€'
+        },
+        toolbox: {
+          show: false,
+          feature: {
+            mark: {show: true},
+            restore: {show: false},
+            saveAsImage: {show: false}
+          }
+        },
+        series: [
+          {
+            name: 'Temp',
+            type: 'gauge',
+            axisLine: {
+                lineStyle: {
+                    color: [[0.20, 'red'],[0.60, 'blue'],[1, 'green']]
+                }
+            },
+            detail: {formatter: '{value}€'},
+            data: [{value: 50, name: 'Temperature'}]
+          }
+        ]
+      }
     };
+  },
+  created() {
+    //do something after creating vue instance
+    this.jauge.series[0].max = this.maxJauge;
   }
 }
 </script>
@@ -89,6 +127,10 @@ li {
 }
 a {
   color: #42b983;
+}
+#jauge {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 </style>
