@@ -24,8 +24,8 @@
 
 <script>
 
-import TableauDeBord from '@/components/TableauDeBord.vue'
-import Config from '@/components/Config.vue'
+import TableauDeBord from '@/components/tableauDeBord/TableauDeBord.vue'
+import Config from '@/components/config/Config.vue'
 
 export default {
   name: 'generale',
