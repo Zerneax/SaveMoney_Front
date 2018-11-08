@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="column" id="tableau">
-        <sui-tab>
+        <sui-tab :active-index.sync="activeTab">
           <sui-tab-pane title="Dépenses" >
             <sui-table celled padded id="Depenses">
               <sui-table-header>
@@ -26,8 +26,21 @@
                   <sui-table-cell> {{depense.montant}} </sui-table-cell>
                   <sui-table-cell> {{depense.description}} </sui-table-cell>
                 </sui-table-row>
+                <!-- Ligne pour ajouter dans le tableau -->
+                <sui-table-row v-show="ajoutLigne">
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="date..." v-model="newLigne.date"/>
+                  </sui-table-cell>
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="montant..." v-model="newLigne.montant"/>
+                  </sui-table-cell>
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="description..." v-model="newLigne.description"/>
+                  </sui-table-cell>
+                </sui-table-row>
               </sui-table-body>
             </sui-table>
+            <button class="ui red button" v-on:click="ajouterLigne()"> Ajouter une lign </button>
           </sui-tab-pane>
           <sui-tab-pane title="Revenus" >
             <sui-table celled padded id="Revenus">
@@ -44,8 +57,21 @@
                   <sui-table-cell> {{revenu.montant}} </sui-table-cell>
                   <sui-table-cell> {{revenu.description}} </sui-table-cell>
                 </sui-table-row>
+                <!-- Ligne pour ajouter dans le tableau -->
+                <sui-table-row v-show="ajoutLigne">
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="date..." v-model="newLigne.date"/>
+                  </sui-table-cell>
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="montant..." v-model="newLigne.montant"/>
+                  </sui-table-cell>
+                  <sui-table-cell>
+                    <input class="ui input" placeholder="description..." v-model="newLigne.description"/>
+                  </sui-table-cell>
+                </sui-table-row>
               </sui-table-body>
             </sui-table>
+            <button class="ui red button" v-on:click="ajouterLigne()"> Ajouter une ligne </button>
           </sui-tab-pane>
         </sui-tab>
       </div>
