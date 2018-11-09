@@ -3,17 +3,19 @@
     <div class="ui two column grid">
       <div class="column" id="graph">
         <div class="ui segment">
-          <IEcharts id="jauge" :option="jauge" style="width: 100%; height: 400px;" v-on:click="updateMaxJauge()"></IEcharts>
+          <IEcharts id="jauge" :option="jauge" style="width: 100%; height: 400px;"></IEcharts>
           <p style="text-align: center">
             <font-awesome-icon :icon="iconJauge" size="2x" :style="{color: colorIconJauge}"/>
             {{messageJauge}}
           </p>
         </div>
         <div class="ui segment">
+          <IEcharts id="bar" :option="bar" style="width: 100%; height: 400px;"></IEcharts>
         </div>
       </div>
       <div class="column" id="tableau">
-        <sui-tab :active-index.sync="activeTab">
+        <div>
+        <sui-tab  :active-index.sync="activeTab" id="Suitab">
           <sui-tab-pane title="Dépenses" >
             <sui-table celled padded id="Depenses">
               <sui-table-header>
@@ -83,6 +85,10 @@
           </sui-tab-pane>
         </sui-tab>
       </div>
+        <div class="ui segment" id="infos">
+          <p> Test </p>
+        </div>
+      </div>
     </div>
   </body>
 </template>
@@ -115,6 +121,15 @@ a {
 }
 #tableau {
   width: 60%;
+}
+#Suitab {
+  display: block;
+  height: 50%;
+  overflow: scroll;
+}
+#infos {
+  display: block;
+  height: 50%;
 }
 
 </style>

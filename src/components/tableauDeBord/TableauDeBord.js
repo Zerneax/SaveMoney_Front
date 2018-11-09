@@ -14,7 +14,14 @@ export default {
       iconJauge: 'meh',
       colorIconJauge: 'blue',
       messageJauge: 'La situation est stable',
-      typeDepense: [{"text":"Loisir", "value": "Loisir"}, {"text":"Vie Quotidienne", "value":"Vie Quotidienne"}],
+      typeDepense: [
+        {"text":"Loisir", "value": "Loisir"},
+        {"text":"Vie Quotidienne", "value":"Vie Quotidienne"},
+        {"text":"Habitation", "value": "Habitation"},
+        {"text":"Santé", "value": "Santé"},
+        {"text":"Transport", "value": "Transport"},
+        {"text":"Animaux", "value": "Animaux"}
+        ],
       depenses: [
         {"date": '10/10/1980',"montant": 51, "description": 'Transpole', "type": "Transport"},
         {"date": '11/10/1980',"montant": 245, "description": 'Assurance Habitation', "type": "Habitation"},
@@ -56,6 +63,22 @@ export default {
             data: [{value: 50, name: 'Budget'}]
           }
         ]
+      },
+      bar: {
+        title: {
+          text: 'Type de dépense'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['Loi', 'Vie', 'Hab', 'San', 'Tra', 'Ani']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [{
+          data: [],
+          type: 'bar'
+        }]
       }
     };
   },
@@ -63,6 +86,7 @@ export default {
     //do something after creating vue instance
     this.jauge.series[0].max = this.maxJauge;
     this.updateJauge();
+    this.updateBar();
   },
   methods: {
     updateJauge() {
@@ -92,6 +116,32 @@ export default {
         }
 
     },
+    updateBar() {
+      this.bar.series[0].data= [];
+      let loisir = 0, vieQutodienne = 0, habitation = 0, sante = 0, transport = 0, animaux = 0;
+      for(var i = 0; i < this.depenses.length; i ++) {
+        if("Loisir" === this.depenses[i].type)
+          loisir += Number(this.depenses[i].montant);
+        else if ("Vie Quotidienne" === this.depenses[i].type)
+          vieQutodienne += Number(this.depenses[i].montant);
+        else if ("Habitation" === this.depenses[i].type)
+          habitation += Number(this.depenses[i].montant);
+        else if ("Santé" === this.depenses[i].type)
+          sante += Number(this.depenses[i].montant);
+        else if ("Transport" === this.depenses[i].type)
+          transport += Number(this.depenses[i].montant);
+        else
+          animaux += Number(this.depenses[i].montant);
+      }
+
+      this.bar.series[0].data.push(loisir);
+      this.bar.series[0].data.push(vieQutodienne);
+      this.bar.series[0].data.push(habitation);
+      this.bar.series[0].data.push(sante);
+      this.bar.series[0].data.push(transport);
+      this.bar.series[0].data.push(animaux);
+
+    },
     ajouterLigne() {
       if(this.ajoutLigne == false) {
         // RAZ
@@ -103,9 +153,10 @@ export default {
       }else {
         this.ajoutLigne = false;
 
-        if(this.activeTab == 0)
+        if(this.activeTab == 0) {
           this.depenses.push(Object.assign({},this.newLigne));
-        else
+          this.updateBar();
+        } else
           this.revenus.push(
             Object.assign({},
               {"date": this.newLigne.date},
