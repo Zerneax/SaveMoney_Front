@@ -83,7 +83,7 @@ export default {
           data:['Loisir', 'Vie Quotidienne', 'Habitation', 'Santé', 'Transport', 'Animaux']
         },
         series: [{
-            name:'% des dépenses',
+            name:'Dépenses',
             type:'pie',
             radius: '55%',
             center: ['50%', '60%'],
