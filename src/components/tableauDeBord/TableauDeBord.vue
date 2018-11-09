@@ -21,13 +21,15 @@
                   <sui-table-header-cell> Date </sui-table-header-cell>
                   <sui-table-header-cell> Montant </sui-table-header-cell>
                   <sui-table-header-cell> Description </sui-table-header-cell>
+                  <sui-table-header-cell> Type </sui-table-header-cell>
                 </sui-table-row>
               </sui-table-header>
               <sui-table-body>
                 <sui-table-row v-for="depense in depenses">
                   <sui-table-cell> {{depense.date}} </sui-table-cell>
-                  <sui-table-cell> {{depense.montant}} </sui-table-cell>
+                  <sui-table-cell> {{depense.montant}}€ </sui-table-cell>
                   <sui-table-cell> {{depense.description}} </sui-table-cell>
+                  <sui-table-cell> {{depense.type}} </sui-table-cell>
                 </sui-table-row>
                 <!-- Ligne pour ajouter dans le tableau -->
                 <sui-table-row v-show="ajoutLigne">
@@ -39,6 +41,9 @@
                   </sui-table-cell>
                   <sui-table-cell>
                     <input class="ui input" placeholder="description..." v-model="newLigne.description"/>
+                  </sui-table-cell>
+                  <sui-table-cell>
+                    <sui-dropdown placeholder="type..." selection :options="typeDepense" v-model="newLigne.type"/>
                   </sui-table-cell>
                 </sui-table-row>
               </sui-table-body>
@@ -57,7 +62,7 @@
               <sui-table-body>
                 <sui-table-row v-for="revenu in revenus">
                   <sui-table-cell> {{revenu.date}} </sui-table-cell>
-                  <sui-table-cell> {{revenu.montant}} </sui-table-cell>
+                  <sui-table-cell> {{revenu.montant}}€ </sui-table-cell>
                   <sui-table-cell> {{revenu.description}} </sui-table-cell>
                 </sui-table-row>
                 <!-- Ligne pour ajouter dans le tableau -->

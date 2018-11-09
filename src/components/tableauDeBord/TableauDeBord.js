@@ -14,10 +14,11 @@ export default {
       iconJauge: 'meh',
       colorIconJauge: 'blue',
       messageJauge: 'La situation est stable',
+      typeDepense: [{"text":"Loisir", "value": "Loisir"}, {"text":"Vie Quotidienne", "value":"Vie Quotidienne"}],
       depenses: [
-        {"date": '10/10/1980',"montant": 20, "description": 'test 1'},
-        {"date": '11/10/1980',"montant": 60, "description": 'test 2'},
-        {"date": '13/10/1980',"montant": 10, "description": 'test 3'}],
+        {"date": '10/10/1980',"montant": 51, "description": 'Transpole', "type": "Transport"},
+        {"date": '11/10/1980',"montant": 245, "description": 'Assurance Habitation', "type": "Habitation"},
+        {"date": '13/10/1980',"montant": 10, "description": 'Carrefour', "type": "Vie Quotidienne"}],
       revenus: [
         {"date": '10/10/1980',"montant": 2000, "description": 'salaire'},
         {"date": '11/10/1980',"montant": 20, "description": 'mutuelle'},
@@ -25,7 +26,8 @@ export default {
       newLigne: {
         "date": '',
         "montant": 0,
-        "description": ''
+        "description": '',
+        "type": null
       },
       maxJauge: 2000,
       activeTab: 0,
@@ -96,6 +98,7 @@ export default {
         this.newLigne.date='';
         this.newLigne.montant=0;
         this.newLigne.description='';
+        this.newLigne.type= null;
         this.ajoutLigne = true;
       }else {
         this.ajoutLigne = false;
@@ -103,7 +106,12 @@ export default {
         if(this.activeTab == 0)
           this.depenses.push(Object.assign({},this.newLigne));
         else
-          this.revenus.push(Object.assign({},this.newLigne));
+          this.revenus.push(
+            Object.assign({},
+              {"date": this.newLigne.date},
+              {"montant": this.newLigne.montant},
+              {"description": this.newLigne.description}
+          ));
 
         this.updateJauge();
       }
