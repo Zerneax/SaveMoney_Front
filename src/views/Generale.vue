@@ -16,6 +16,7 @@
         </a>
       </div>
     </div>
+    <h3 is="sui-header"> Nous sommes le : {{affichageDate}} </h3>
     <TableauDeBord v-if="active == 'Tableau de Bord'"/>
     <Config v-if="active == 'Parametre'"/>
   </div>
@@ -38,7 +39,12 @@ export default {
       whoAmI: 'Bonjour Christopher !',
       active: 'Tableau de Bord',
       menus: ['Tableau de Bord', 'Parametre'],
+      affichageDate : ''
     };
+  },
+  created() {
+    //do something after creating vue instance
+    this.affichageDate = this.$moment(Date.now()).format("DD MMMM YYYY");
   },
   methods: {
     isActive(name) {

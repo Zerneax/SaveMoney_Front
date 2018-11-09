@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "echarts": "^4.2.0-rc.2",
-    "moment": "^2.22.2",
     "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-vue": "^0.5.1",
     "vue": "^2.5.17",
     "vue-echarts-v3": "^1.0.19",
+    "vue-moment-lib": "^1.2.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
