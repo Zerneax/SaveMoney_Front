@@ -130,9 +130,10 @@
             </div> -->
           </div>
           <div class="ui column">
-            <h3 is="sui-header" text-align="center" >
+            <h3 is="sui-header" icon text-align="center" >
               <sui-icon name="users" circular />
-              <sui-header-content>Contacts</sui-header-content>
+              <sui-divider horizontal> Contacts </sui-divider>
+              <!-- <sui-header-content>Contacts</sui-header-content> -->
             </h3>
             <p> Assurance </p>
             <p> Auto : MAIF </p>
