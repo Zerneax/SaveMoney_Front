@@ -21,7 +21,7 @@
         </div>
         </div>
         <div class="ui segment">
-          <IEcharts id="pie" :option="bar"></IEcharts>
+          <IEcharts id="pie" :option="pie"></IEcharts>
         </div>
       </div>
       <div class="column" id="tableau">

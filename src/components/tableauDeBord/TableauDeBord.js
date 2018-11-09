@@ -68,7 +68,7 @@ export default {
           }
         ]
       },
-      bar: {
+      pie: {
         title : {
             text: 'Répartition des dépenses',
             x:'center'
@@ -134,7 +134,7 @@ export default {
 
     },
     updateBar() {
-      this.bar.series[0].data= [];
+      this.pie.series[0].data= [];
       let loisir = 0, vieQutodienne = 0, habitation = 0, sante = 0, transport = 0, animaux = 0;
       for(var i = 0; i < this.depenses.length; i ++) {
         if("Loisir" === this.depenses[i].type)
@@ -152,17 +152,17 @@ export default {
       }
 
       if(loisir != 0)
-        this.bar.series[0].data.push({'value':loisir, 'name': 'Loisir'});
+        this.pie.series[0].data.push({'value':loisir, 'name': 'Loisir'});
       if(vieQutodienne != 0)
-        this.bar.series[0].data.push({'value':vieQutodienne, 'name': 'Vie Quotidienne'});
+        this.pie.series[0].data.push({'value':vieQutodienne, 'name': 'Vie Quotidienne'});
       if(habitation != 0)
-        this.bar.series[0].data.push({'value':habitation, 'name': 'Habitation'});
+        this.pie.series[0].data.push({'value':habitation, 'name': 'Habitation'});
       if(sante != 0)
-        this.bar.series[0].data.push({'value':sante, 'name': 'Santé'});
+        this.pie.series[0].data.push({'value':sante, 'name': 'Santé'});
       if(transport != 0)
-        this.bar.series[0].data.push({'value':transport, 'name': 'Transport'});
+        this.pie.series[0].data.push({'value':transport, 'name': 'Transport'});
       if(animaux != 0)
-        this.bar.series[0].data.push({'value':animaux, 'name': 'Animaux'});
+        this.pie.series[0].data.push({'value':animaux, 'name': 'Animaux'});
 
     },
     ajouterLigne() {
