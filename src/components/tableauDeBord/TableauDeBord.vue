@@ -50,7 +50,7 @@
                     <input class="ui input" placeholder="date..." v-model="newLigne.date"/>
                   </sui-table-cell>
                   <sui-table-cell>
-                    <input class="ui input" placeholder="montant..." v-model="newLigne.montant"/>
+                    <input class="ui input" placeholder="montant..." v-model="newLigne.montant"/><span>€</span>
                   </sui-table-cell>
                   <sui-table-cell>
                     <input class="ui input" placeholder="description..." v-model="newLigne.description"/>
@@ -101,14 +101,14 @@
           <div class="column" id="comptes">
             <h3 is="sui-header"> Vos Comptes </h3>
             <div class="ui segment">
-              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <font-awesome-icon icon="coins" size="4x"/>
               <div class="content">
                 <div class="title">Compte Courant Simple</div>
                 <div class="description">1000000€</div>
               </div>
             </div>
             <div class="ui segment">
-              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <font-awesome-icon icon="envelope" size="4x"/>
               <div class="content">
                 <div class="title">Compte Courant Joint</div>
                 <div class="description">150789€</div>

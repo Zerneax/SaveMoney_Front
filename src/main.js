@@ -7,17 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Import icon from  font awesome
-import { faMeh } from '@fortawesome/free-solid-svg-icons'
-import { faSmile } from '@fortawesome/free-solid-svg-icons'
-import { faFrown } from '@fortawesome/free-solid-svg-icons'
-import { faEuroSign } from '@fortawesome/free-solid-svg-icons'
+import { faMeh, faSmile, faFrown, faEuroSign, faCoins, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 
-library.add(faMeh);
-library.add(faSmile);
-library.add(faFrown);
-library.add(faEuroSign);
+library.add(faMeh, faSmile, faFrown, faEuroSign, faCoins, faEnvelope);
+
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
