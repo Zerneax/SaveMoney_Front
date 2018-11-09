@@ -33,7 +33,12 @@ a {
   /* height: 50%; */
   max-height: 300px;
 }
-
+#pie {
+  width: 100%;
+  min-height: 400px;
+  max-height: 400px;
+  overflow: auto;
+}
 #comptes {
   width: 40%;
   max-height: 350px;

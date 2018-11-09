@@ -39,6 +39,10 @@ export default {
       maxJauge: 2000,
       activeTab: 0,
       jauge: {
+        title: {
+          text: 'Budget mensuel',
+          x: 'center'
+        },
         tooltip: {
           formatter: '{a} <br/>{b} : {c}€'
         },
@@ -65,19 +69,32 @@ export default {
         ]
       },
       bar: {
-        title: {
-          text: 'Type de dépense'
+        title : {
+            text: 'Répartition des dépenses',
+            x:'center'
         },
-        xAxis: {
-          type: 'category',
-          data: ['Loi', 'Vie', 'Hab', 'San', 'Tra', 'Ani']
+        tooltip: {
+          trigger: 'item',
+          formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        yAxis: {
-          type: 'value'
+        legend: {
+          orient: 'vertical',
+          x: 'left',
+          data:['Loisir', 'Vie Quotidienne', 'Habitation', 'Santé', 'Transport', 'Animaux']
         },
         series: [{
-          data: [],
-          type: 'bar'
+            name:'% des dépenses',
+            type:'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data:[],
+            itemStyle: {
+              emphasis: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
         }]
       }
     };
@@ -134,12 +151,18 @@ export default {
           animaux += Number(this.depenses[i].montant);
       }
 
-      this.bar.series[0].data.push(loisir);
-      this.bar.series[0].data.push(vieQutodienne);
-      this.bar.series[0].data.push(habitation);
-      this.bar.series[0].data.push(sante);
-      this.bar.series[0].data.push(transport);
-      this.bar.series[0].data.push(animaux);
+      if(loisir != 0)
+        this.bar.series[0].data.push({'value':loisir, 'name': 'Loisir'});
+      if(vieQutodienne != 0)
+        this.bar.series[0].data.push({'value':vieQutodienne, 'name': 'Vie Quotidienne'});
+      if(habitation != 0)
+        this.bar.series[0].data.push({'value':habitation, 'name': 'Habitation'});
+      if(sante != 0)
+        this.bar.series[0].data.push({'value':sante, 'name': 'Santé'});
+      if(transport != 0)
+        this.bar.series[0].data.push({'value':transport, 'name': 'Transport'});
+      if(animaux != 0)
+        this.bar.series[0].data.push({'value':animaux, 'name': 'Animaux'});
 
     },
     ajouterLigne() {
