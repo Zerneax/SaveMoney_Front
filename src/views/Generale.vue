@@ -1,7 +1,7 @@
 <template>
   <div class="generale">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <div class="ui menu pointing secondary">
+    <div class="ui inverted menu pointing">
       <a
         is="sui-menu-item"
         v-for="menu in menus"

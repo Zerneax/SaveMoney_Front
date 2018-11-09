@@ -10,12 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faSmile } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
+import { faEuroSign } from '@fortawesome/free-solid-svg-icons'
 
 import 'semantic-ui-css/semantic.min.css'
 
 library.add(faMeh);
 library.add(faSmile);
 library.add(faFrown);
+library.add(faEuroSign);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

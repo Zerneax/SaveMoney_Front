@@ -3,7 +3,7 @@
     <div class="ui two column grid">
       <div class="column" id="graph">
         <div class="ui two column grid">
-          <div class="column" style="">
+          <div class="column">
           <IEcharts id="jauge" :option="jauge" style="width: 100%; height: 400px;"></IEcharts>
           <p style="text-align: center">
             <font-awesome-icon :icon="iconJauge" size="2x" :style="{color: colorIconJauge}"/>
@@ -24,7 +24,7 @@
       </div>
       <div class="column" id="tableau">
         <div>
-        <sui-tab  :active-index.sync="activeTab" id="Suitab">
+        <sui-tab :active-index.sync="activeTab" id="Suitab">
           <sui-tab-pane title="Dépenses" >
             <sui-table celled padded id="Depenses">
               <sui-table-header>
@@ -94,8 +94,53 @@
           </sui-tab-pane>
         </sui-tab>
       </div>
-        <div class="ui segment" id="infos">
-          <p> Test </p>
+      <sui-divider hidden />
+        <div class="ui two column grid" id="infos">
+          <div class="column" id="comptes">
+            <h3 is="sui-header"> Vos Comptes </h3>
+            <div class="ui segment">
+              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <div class="content">
+                <div class="title">Compte Courant Simple</div>
+                <div class="description">1000000€</div>
+              </div>
+            </div>
+            <div class="ui segment">
+              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <div class="content">
+                <div class="title">Compte Courant Joint</div>
+                <div class="description">150789€</div>
+              </div>
+            </div>
+            <!-- <div class="ui segment">
+              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <div class="content">
+                <div class="title">Compte Courant Simple</div>
+                <div class="description">10879€</div>
+              </div>
+            </div>
+            <div class="ui segment">
+              <font-awesome-icon icon="euro-sign" size="4x"/>
+              <div class="content">
+                <div class="title">Compte Courant Simple</div>
+                <div class="description">10879€</div>
+              </div>
+            </div> -->
+          </div>
+          <div class="ui column">
+            <h3 is="sui-header" text-align="center" >
+              <sui-icon name="users" circular />
+              <sui-header-content>Contacts</sui-header-content>
+            </h3>
+            <p> Assurance </p>
+            <p> Auto : MAIF </p>
+            <p> 06 06 06 06 06 </p>
+            <p> Habitation : Sogessur </p>
+            <p> 06 06 06 06 06 </p>
+            <p> Banque </p>
+            <p> Mr XXXXX </p>
+            <p> 06 06 06 06 06 </p>
+          </div>
         </div>
       </div>
     </div>
@@ -105,42 +150,5 @@
 <script src="./TableauDeBord.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-#jauge {
-  margin-left: auto;
-  margin-right: auto;
-}
-#graph {
-  width: 40%;
-}
-#tableau {
-  width: 60%;
-}
-#Suitab {
-  display: block;
-  height: 50%;
-  overflow: scroll;
-  max-height: 500px;
-}
-#infos {
-  display: block;
-  height: 50%;
-  max-height: 300px;
-}
-
+<style scoped src="./TableauDeBord.css">
 </style>
