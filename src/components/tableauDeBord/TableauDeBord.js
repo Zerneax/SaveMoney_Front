@@ -40,7 +40,7 @@ export default {
         },
         series: [
           {
-            name: 'Temp',
+            name: 'Budget',
             type: 'gauge',
             axisLine: {
                 lineStyle: {
@@ -48,7 +48,7 @@ export default {
                 }
             },
             detail: {formatter: '{value}€'},
-            data: [{value: 50, name: 'Temperature'}]
+            data: [{value: 50, name: 'Budget'}]
           }
         ]
       }

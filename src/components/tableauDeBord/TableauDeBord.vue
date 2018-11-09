@@ -1,6 +1,5 @@
 <template>
   <body>
-    <h3 is="sui-header"> Gerer votre budget !! </h3>
     <div class="ui two column grid">
       <div class="column" id="graph">
         <div class="ui segment charts">
@@ -40,7 +39,7 @@
                 </sui-table-row>
               </sui-table-body>
             </sui-table>
-            <button class="ui red button" v-on:click="ajouterLigne()"> Ajouter une lign </button>
+            <button class="ui red button" v-on:click="ajouterLigne()"> Ajouter une ligne </button>
           </sui-tab-pane>
           <sui-tab-pane title="Revenus" >
             <sui-table celled padded id="Revenus">
