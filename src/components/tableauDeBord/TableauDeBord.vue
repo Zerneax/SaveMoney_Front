@@ -2,8 +2,12 @@
   <body>
     <div class="ui two column grid">
       <div class="column" id="graph">
-        <div class="ui segment charts">
+        <div class="ui segment">
           <IEcharts id="jauge" :option="jauge" style="width: 100%; height: 400px;" v-on:click="updateMaxJauge()"></IEcharts>
+          <p style="text-align: center">
+            <font-awesome-icon :icon="iconJauge" size="2x" :style="{color: colorIconJauge}"/>
+            {{messageJauge}}
+          </p>
         </div>
         <div class="ui segment">
         </div>

@@ -11,6 +11,9 @@ export default {
   data() {
     return {
       ajoutLigne: false,
+      iconJauge: 'meh',
+      colorIconJauge: 'blue',
+      messageJauge: 'La situation est stable',
       depenses: [
         {"date": '10/10/1980',"montant": 20, "description": 'test 1'},
         {"date": '11/10/1980',"montant": 60, "description": 'test 2'},
@@ -64,15 +67,28 @@ export default {
         let sumDepenses = 0;
         let sumRevenus = 0;
         for(var i = 0; i < this.depenses.length; i ++)
-        {
-          console.log("depense", this.depenses[i].montant );
           sumDepenses += Number(this.depenses[i].montant);
-        }
         for(var i = 0; i < this.revenus.length; i ++)
           sumRevenus += Number(this.revenus[i].montant);
 
-        console.log("sumDepenses", sumDepenses);
-        this.jauge.series[0].data[0].value = sumRevenus - sumDepenses;
+        let diff = sumRevenus - sumDepenses;
+        this.jauge.series[0].data[0].value = diff;
+
+        let pourcent = (diff * 100) / this.maxJauge;
+        if(pourcent < 20) {
+          this.iconJauge= 'frown';
+          this.colorIconJauge= 'red';
+          this.messageJauge= 'La situation devient critique';
+        } else if (pourcent >=20 && pourcent < 60) {
+          this.iconJauge= 'meh';
+          this.colorIconJauge= 'blue';
+          this.messageJauge= 'La situation est stable';
+        } else {
+          this.iconJauge= 'smile';
+          this.colorIconJauge= 'green';
+          this.messageJauge= 'La situation est favorable';
+        }
+
     },
     ajouterLigne() {
       if(this.ajoutLigne == false) {
