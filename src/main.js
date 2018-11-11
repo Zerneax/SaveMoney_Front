@@ -16,6 +16,8 @@ library.add(faMeh, faSmile, faFrown, faEuroSign, faCoins, faEnvelope);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+export var serverBus = new Vue();
+
 Vue.use(SuiVue);
 Vue.use(VueMomentLib);
 

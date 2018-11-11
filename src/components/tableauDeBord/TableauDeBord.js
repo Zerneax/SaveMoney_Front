@@ -1,4 +1,8 @@
 import IEcharts from 'vue-echarts-v3/src/full.js'
+import Config from '@/components/config/Config.vue'
+import { serverBus } from '../../main';
+
+
 
 export default {
   name: 'TableauDeBord',
@@ -6,10 +10,12 @@ export default {
     msg: String
   },
   components: {
-    IEcharts
+    IEcharts,
+    Config
   },
   data() {
     return {
+      test: '',
       ajoutLigne: false,
       iconJauge: 'meh',
       colorIconJauge: 'blue',
@@ -104,6 +110,10 @@ export default {
     this.jauge.series[0].max = this.maxJauge;
     this.updateJauge();
     this.updateBar();
+    this.test = Config.data().test;
+    serverBus.$on('test-has-changed', (dataConfig) => {
+      console.log("Mon test", dataConfig.test2);
+    });
   },
   methods: {
     updateJauge() {

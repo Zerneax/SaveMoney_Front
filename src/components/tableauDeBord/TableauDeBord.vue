@@ -2,6 +2,7 @@
 
   <!-- TODO : regarder pour le côté responsive ici : https://semantic-ui.com/elements/container.html -->
   <body>
+    <input type="text" placeholder="test..." v-model="test"/>
     <div class="ui two column grid">
       <div class="column" id="graph">
         <div class="ui two column grid">
